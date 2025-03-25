@@ -1,6 +1,27 @@
-import "./headerData.js";
+import "./day.js";
 import { API_KEY } from "./../secret/secret.js";
-import dayjs from "https://unpkg.com/dayjs@1.11.13/esm/index.js";
+import { today } from "./day.js";
+
+const variables = document.querySelector(":root");
+const date = new Date();
+const timeNow = date.getHours();
+const yearNow = date.getFullYear();
+
+const formatDate = today.format("D/M/YY");
+
+document.querySelector(".header__day").innerHTML = formatDate;
+
+function changeTheme() {
+    if (timeNow >= 7 && timeNow < 18) {
+        variables.style.setProperty("--bg-color", "rgb(88, 184, 239)");
+    } else {
+        variables.style.setProperty("--bg-color", "rgb(2, 30, 131)");
+    }
+}
+
+changeTheme();
+
+document.getElementById("year-now").textContent = yearNow;
 
 // ALLOWS HOVER ON TOUCH DEVICES
 addEventListener("touchstart", function () {}, true);
@@ -50,8 +71,6 @@ async function submitHandler(e) {
         humidity: weatherInfo.list[0].main.humidity,
         speed: weatherInfo.list[0].wind.speed,
     };
-
-    const today = dayjs();
 
     const firstDay = today;
 
@@ -249,15 +268,3 @@ function recomendHandler(prop) {
     document.querySelector(".suggest").classList.add("none");
     input.value = prop;
 }
-
-function changeTheme() {
-    const variables = document.querySelector(":root");
-    const date = new Date().getHours();
-    if (date >= 7 && date < 18) {
-        variables.style.setProperty("--bg-color", "rgb(88, 184, 239)");
-    } else if (date >= 18 && date < 7) {
-        variables.style.setProperty("--bg-color", "rgb(2, 30, 131)");
-    }
-}
-
-changeTheme();

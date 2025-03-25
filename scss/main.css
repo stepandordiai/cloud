@@ -125,18 +125,18 @@ legend {
   background: rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s;
 }
+.form:focus-within {
+  background-color: rgba(0, 0, 0, 0.2);
+}
 @media (max-width: 600px) {
   .form {
     width: 100%;
   }
 }
 
-.form:focus-within {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
 .form__input {
   width: calc(100% - 40px);
+  height: 100%;
   padding: 0 10px;
 }
 
@@ -156,9 +156,11 @@ legend {
   border-radius: 10px;
   transition: background-color 0.3s;
 }
-
 .form__btn:hover {
   background: rgba(255, 255, 255, 0.5);
+}
+.form__btn img {
+  width: 50%;
 }
 
 :root {
@@ -373,10 +375,6 @@ legend {
   flex-shrink: 0;
 }
 
-:root {
-  --bg-color: rgb(88, 184, 239);
-}
-
 .details {
   height: 20%;
   display: flex;
@@ -400,17 +398,17 @@ legend {
   -moz-column-gap: 10px;
        column-gap: 10px;
 }
-.details__humidity i,
-.details__speed i {
-  font-size: 30px;
+.details__humidity img,
+.details__speed img {
+  width: 40px;
 }
 
 .humidity,
 .speed {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  flex-direction: column;
 }
 @media screen and (max-width: 600px) {
   .humidity,

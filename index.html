@@ -8,11 +8,12 @@
     <meta name="keywords" content="Weather daily, weather hourly, date">
     <title>cloud.</title>
     <link rel="stylesheet" href="./scss/main.css">
-    <!-- Fontawesome -->
-    <script src="https://kit.fontawesome.com/4b11705643.js" crossorigin="anonymous"></script>
+
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="./img/favicons/logo-svg-260-cloud.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/logo-png-180-cloud.png">
+
+    <link rel="icon" type="image/x-icon" href="./public/favicons/cloud-v2.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="./public/favicons/cloud-v2.png">
+    <script type="module" src="js/main.js" defer></script>
 </head>
 
 <body>
@@ -26,7 +27,9 @@
     <div class="wrapper">
         <form action="" class="form" id="form">
             <input type="text" class="form__input" placeholder="Enter city name">
-            <button class="form__btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="form__btn">
+                <img src="./img/icons/search-interface-symbol.png" alt="Search">
+            </button>
         </form>
         <div class="suggest">
             <p class="suggest__title">Suggested</p>
@@ -68,14 +71,14 @@
                 </div>
                 <div class="details">
                     <div class="details__humidity">
-                        <i class="fa-solid fa-droplet"></i>
+                        <img src="./img/icons/humidity.png" alt="Humidity">
                         <div class="humidity">
                             <div id="humidity">--%</div>
                             <div class="humidity__title">Humidity</div>
                         </div>
                     </div>
                     <div class="details__speed">
-                        <i class="fa-solid fa-wind"></i>
+                        <img src="./img/icons/wind.png" alt="Wind">
                         <div class="speed">
                             <div id="speed">--.-- km/h</div>
                             <div class="speed__title">Wind speed</div>
@@ -89,11 +92,10 @@
         <p class="creator">Made with love by <a href="https://stepandordiai.netlify.app/" target="_blank">Stepan
                 Dordiai</a></p>
         <div>
-            <p class="copyright">© 2024 cloud.</p>
+            <p class="copyright">© 2024 - <span id="year-now"></span> cloud.</p>
             <p>All rights reserved.</p>
         </div>
     </footer>
-    <script type="module" src="js/main.js"></script>
 </body>
 
 </html>
