@@ -167,18 +167,18 @@ legend {
   --bg-color: rgb(88, 184, 239);
 }
 
-.suggest {
+.search-history {
   align-self: center;
   margin: 100px 0;
 }
 
-.suggest__title {
+.search-history__title {
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
-.grid-container {
+.search-history__container {
   display: grid;
   grid-template-columns: repeat(4, auto);
   -moz-column-gap: 50px;
@@ -186,12 +186,12 @@ legend {
   row-gap: 10px;
   justify-items: flex-start;
 }
-.grid-container input {
+.search-history__container input {
   font-size: 18px;
   font-weight: 400;
 }
 @media screen and (max-width: 600px) {
-  .grid-container {
+  .search-history__container {
     grid-template-columns: repeat(1, auto);
     justify-items: center;
   }

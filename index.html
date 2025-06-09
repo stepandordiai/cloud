@@ -1,101 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Stepan Dordiai" />
+		<meta name="keywords" content="Weather daily, weather hourly, date" />
+		<title>cloud.</title>
+		<link rel="stylesheet" href="./scss/main.css" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Stepan Dordiai">
-    <meta name="keywords" content="Weather daily, weather hourly, date">
-    <title>cloud.</title>
-    <link rel="stylesheet" href="./scss/main.css">
+		<!-- Favicon -->
 
-    <!-- Favicon -->
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href="./public/favicons/cloud-v2.svg"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="./public/favicons/cloud-v2.png"
+		/>
+		<script type="module" src="js/main.js" defer></script>
+	</head>
 
-    <link rel="icon" type="image/x-icon" href="./public/favicons/cloud-v2.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="./public/favicons/cloud-v2.png">
-    <script type="module" src="js/main.js" defer></script>
-</head>
-
-<body>
-    <header class="header">
-        <a class="header__logo" href="index.html">
-            <img src="./img/logo/logo.svg" alt="">
-            <p>cloud.</p>
-        </a>
-        <div class="header__day">--/--/--</div>
-    </header>
-    <div class="wrapper">
-        <form action="" class="form" id="form">
-            <input type="text" class="form__input" placeholder="Enter city name">
-            <button class="form__btn">
-                <img src="./img/icons/search-interface-symbol.png" alt="Search">
-            </button>
-        </form>
-        <div class="suggest">
-            <p class="suggest__title">Suggested</p>
-            <div class="grid-container">
-                <input class="suggest-form" form="form" type="submit" value="Vilkhivtsi">
-                <input class="suggest-form" form="form" type="submit" value="Kyiv">
-                <input class="suggest-form" form="form" type="submit" value="Paris">
-                <input class="suggest-form" form="form" type="submit" value="Marmaris">
-                <input class="suggest-form" form="form" type="submit" value="Frankfurt">
-                <input class="suggest-form" form="form" type="submit" value="Varna">
-                <input class="suggest-form" form="form" type="submit" value="Uzhhorod">
-                <input class="suggest-form" form="form" type="submit" value="Lapland">
-                <input class="suggest-form" form="form" type="submit" value="New York">
-                <input class="suggest-form" form="form" type="submit" value="London">
-                <input class="suggest-form" form="form" type="submit" value="Cologne">
-                <input class="suggest-form" form="form" type="submit" value="Abu Dhabi">
-                <input class="suggest-form" form="form" type="submit" value="Prague">
-            </div>
-        </div>
-        <div class="weather-container none">
-            <div class="left-section">
-                <div class="weather">
-                    <div>
-                        <div class="weather__temp">--°c</div>
-                        <div class="weather__city">-</div>
-                        <div class="weather__type">-</div>
-                    </div>
-                    <img class="weather-img" src="" alt="">
-                </div>
-                <div class="weather-hourly-container"></div>
-            </div>
-            <div class="right-section">
-                <div class="weather-daily-container">
-                    <div class="day-container first-day-container"></div>
-                    <div class="day-container second-day-container"></div>
-                    <div class="day-container third-day-container"></div>
-                    <div class="day-container fourth-day-container"></div>
-                    <div class="day-container fifth-day-container"></div>
-                </div>
-                <div class="details">
-                    <div class="details__humidity">
-                        <img src="./img/icons/humidity.png" alt="Humidity">
-                        <div class="humidity">
-                            <div id="humidity">--%</div>
-                            <div class="humidity__title">Humidity</div>
-                        </div>
-                    </div>
-                    <div class="details__speed">
-                        <img src="./img/icons/wind.png" alt="Wind">
-                        <div class="speed">
-                            <div id="speed">--.-- km/h</div>
-                            <div class="speed__title">Wind speed</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <footer class="footer">
-        <p class="creator">Made with love by <a href="https://stepandordiai.netlify.app/" target="_blank">Stepan
-                Dordiai</a></p>
-        <div>
-            <p class="copyright">© 2024 - <span id="year-now"></span> cloud.</p>
-            <p>All rights reserved.</p>
-        </div>
-    </footer>
-</body>
-
+	<body>
+		<header class="header">
+			<a class="header__logo" href="index.html">
+				<img src="./img/logo/logo.svg" alt="" />
+				<p>cloud.</p>
+			</a>
+			<div class="header__day">--/--/--</div>
+		</header>
+		<div class="wrapper">
+			<form action="" class="form" id="form">
+				<input type="text" class="form__input" placeholder="Enter city name" />
+				<button class="form__btn">
+					<img src="./img/icons/search-interface-symbol.png" alt="Search" />
+				</button>
+			</form>
+			<div class="search-history">
+				<p class="search-history__title">Search history</p>
+				<div class="search-history__container">
+					<!-- <input class="suggest-form" form="form" type="submit" value="Vilkhivtsi"> -->
+					<!-- <input class="suggest-form" form="form" type="submit" value="Kyiv"> -->
+					<!-- <input class="suggest-form" form="form" type="submit" value="Paris"> -->
+					<!-- <input class="suggest-form" form="form" type="submit" value="Marmaris"> -->
+					<!-- <input class="suggest-form" form="form" type="submit" value="Frankfurt"> -->
+					<!-- <input class="suggest-form" form="form" type="submit" value="Varna"> -->
+					<!-- <input class="suggest-form" form="form" type="submit" value="Uzhhorod"> -->
+					<!-- <input class="suggest-form" form="form" type="submit" value="Lapland"> -->
+					<!-- <input class="suggest-form" form="form" type="submit" value="New York"> -->
+					<!-- <input class="suggest-form" form="form" type="submit" value="London"> -->
+					<!-- <input class="suggest-form" form="form" type="submit" value="Cologne"> -->
+					<!-- <input class="suggest-form" form="form" type="submit" value="Abu Dhabi"> -->
+					<!-- <input class="suggest-form" form="form" type="submit" value="Prague"> -->
+				</div>
+			</div>
+			<div class="weather-container none">
+				<div class="left-section">
+					<div class="weather">
+						<div>
+							<div class="weather__temp">--°c</div>
+							<div class="weather__city">-</div>
+							<div class="weather__type">-</div>
+						</div>
+						<img class="weather-img" src="" alt="" />
+					</div>
+					<div class="weather-hourly-container"></div>
+				</div>
+				<div class="right-section">
+					<div class="weather-daily-container">
+						<div class="day-container first-day-container"></div>
+						<div class="day-container second-day-container"></div>
+						<div class="day-container third-day-container"></div>
+						<div class="day-container fourth-day-container"></div>
+						<div class="day-container fifth-day-container"></div>
+					</div>
+					<div class="details">
+						<div class="details__humidity">
+							<img src="./img/icons/humidity.png" alt="Humidity" />
+							<div class="humidity">
+								<div id="humidity">--%</div>
+								<div class="humidity__title">Humidity</div>
+							</div>
+						</div>
+						<div class="details__speed">
+							<img src="./img/icons/wind.png" alt="Wind" />
+							<div class="speed">
+								<div id="speed">--.-- km/h</div>
+								<div class="speed__title">Wind speed</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="footer">
+			<p class="creator">
+				Made with love by
+				<a href="https://stepandordiai.netlify.app/" target="_blank"
+					>Stepan Dordiai</a
+				>
+			</p>
+			<div>
+				<p class="copyright">© 2024 - <span id="year-now"></span> cloud.</p>
+				<p>All rights reserved.</p>
+			</div>
+		</footer>
+	</body>
 </html>
