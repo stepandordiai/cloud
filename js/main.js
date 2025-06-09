@@ -6,7 +6,6 @@ const variables = document.querySelector(":root");
 const date = new Date();
 const timeNow = date.getHours();
 const yearNow = date.getFullYear();
-
 const formatDate = today.format("D/M/YY");
 
 document.querySelector(".header__day").innerHTML = formatDate;
@@ -72,13 +71,9 @@ async function submitHandler(e) {
 	};
 
 	const firstDay = today;
-
 	const secondDay = today.add(1, "days");
-
 	const thirdDay = today.add(2, "days");
-
 	const fourthDay = today.add(3, "days");
-
 	const fifthDay = today.add(4, "days");
 
 	function formatCustomDay(param) {
@@ -93,7 +88,7 @@ async function submitHandler(e) {
 		.forEach((item, index) => {
 			if (index === 0) {
 				firstDayHTML += ` <p>Today</p>
-                                       <img src="./img/weather/flat-icons/${item.weather[0].main.toLowerCase()}.svg"/>
+                                       <img src="./public/weather/flat-icons/${item.weather[0].main.toLowerCase()}.svg"/>
 
                     <div>
                     <p>H:${Math.ceil(item.main.temp_max)}&deg;</p>
@@ -113,7 +108,7 @@ async function submitHandler(e) {
 		.forEach((item, index) => {
 			if (index === 0) {
 				secondDayHTML += ` <p>${secondDay.format("dddd")}</p>
-                                   <img src="./img/weather/flat-icons/${item.weather[0].main.toLowerCase()}.svg"/>
+                                   <img src="./public/weather/flat-icons/${item.weather[0].main.toLowerCase()}.svg"/>
 
                     <div>
                    <p>H:${Math.ceil(item.main.temp_max)}&deg;</p>
@@ -133,7 +128,7 @@ async function submitHandler(e) {
 		.forEach((item, index) => {
 			if (index === 0) {
 				thirdDayHTML += ` <p>${thirdDay.format("dddd")}</p>
-                                       <img src="./img/weather/flat-icons/${item.weather[0].main.toLowerCase()}.svg"/>
+                                       <img src="./public/weather/flat-icons/${item.weather[0].main.toLowerCase()}.svg"/>
 
                     <div>
                   <p>H:${Math.ceil(item.main.temp_max)}&deg;</p>
@@ -153,7 +148,7 @@ async function submitHandler(e) {
 		.forEach((item, index) => {
 			if (index === 0) {
 				fourthDayHTML += ` <p>${fourthDay.format("dddd")}</p>
-                                       <img src="./img/weather/flat-icons/${item.weather[0].main.toLowerCase()}.svg"/>
+                                       <img src="./public/weather/flat-icons/${item.weather[0].main.toLowerCase()}.svg"/>
 
                     <div>
                  <p>H:${Math.ceil(item.main.temp_max)}&deg;</p>
@@ -173,7 +168,7 @@ async function submitHandler(e) {
 		.forEach((item, index) => {
 			if (index === 0) {
 				fifthDayHTML += `<p>${fifthDay.format("dddd")}</p>
-                    <img src="./img/weather/flat-icons/${item.weather[0].main.toLowerCase()}.svg"/>
+                    <img src="./public/weather/flat-icons/${item.weather[0].main.toLowerCase()}.svg"/>
                     <div>
                <p>H:${Math.ceil(item.main.temp_max)}&deg;</p>
                     <p>L:${Math.floor(item.main.temp_min)}&deg;</p>
@@ -189,7 +184,7 @@ async function submitHandler(e) {
 		firstTimeHTML += `
                 <div>
                     <p>${item.dt_txt.slice(11, 16)}</p>
-                    <img width="30px" src="./img/weather/flat-icons/${item.weather[0].main.toLowerCase()}.svg"/>
+                    <img width="30px" src="./public/weather/flat-icons/${item.weather[0].main.toLowerCase()}.svg"/>
                     <p>${Math.round(item.main.temp)}&deg;</p>
                 </div>
                     `;
@@ -227,11 +222,11 @@ async function submitHandler(e) {
 }
 
 function getItem() {
-	return JSON.parse(localStorage.getItem("suggestData") || "[]");
+	return JSON.parse(localStorage.getItem("searchHistory") || "[]");
 }
 
 function saveItem(props) {
-	localStorage.setItem("suggestData", JSON.stringify(props));
+	localStorage.setItem("searchHistory", JSON.stringify(props));
 }
 
 // GET GEOLOCATION LAT AND LON
@@ -266,7 +261,7 @@ function renderWeatherData(data) {
 	type.innerText = data.type;
 	humidity.innerText = data.humidity + "%";
 	speed.innerText = data.speed + " km/h";
-	weatherImg.src = `./img/weather/flat-icons/${data.type.toLowerCase()}.svg`;
+	weatherImg.src = `./public/weather/flat-icons/${data.type.toLowerCase()}.svg`;
 }
 
 const suggestData = getItem();
@@ -295,7 +290,7 @@ function recomendHandler(prop) {
 
 // Remove searchHistory from local storage and handle empty search-history__container
 document.querySelector(".search-history__btn").addEventListener("click", () => {
-	localStorage.removeItem("suggestData");
+	localStorage.removeItem("searchHistory");
 	document.querySelector(".search-history__container").innerHTML =
 		"<p>No suggested</p>";
 });
