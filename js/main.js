@@ -212,8 +212,6 @@ async function submitHandler(e) {
 		}, 1);
 	}
 
-	console.log(input.value);
-
 	let suggestData = getItem();
 
 	if (!suggestData.some((item) => item === input.value)) {
@@ -271,8 +269,6 @@ function renderWeatherData(data) {
 	weatherImg.src = `./img/weather/flat-icons/${data.type.toLowerCase()}.svg`;
 }
 
-console.log(getItem());
-
 const suggestData = getItem();
 
 let gridHTML = "";
@@ -280,8 +276,6 @@ let gridHTML = "";
 suggestData.forEach((item) => {
 	gridHTML += `<input class="search-history__input" form="form" type="submit" value="${item}">`;
 });
-
-console.log(gridHTML);
 
 document.querySelector(".search-history__container").innerHTML =
 	gridHTML || "<p>No suggested</p>";
@@ -298,3 +292,10 @@ function recomendHandler(prop) {
 	document.querySelector(".search-history").classList.add("none");
 	input.value = prop;
 }
+
+// Remove searchHistory from local storage and handle empty search-history__container
+document.querySelector(".search-history__btn").addEventListener("click", () => {
+	localStorage.removeItem("suggestData");
+	document.querySelector(".search-history__container").innerHTML =
+		"<p>No suggested</p>";
+});
