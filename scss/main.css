@@ -119,7 +119,7 @@ legend {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 300px;
+  width: 500px;
   height: 40px;
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.1);
@@ -128,7 +128,7 @@ legend {
 .form:focus-within {
   background-color: rgba(0, 0, 0, 0.2);
 }
-@media (max-width: 600px) {
+@media (max-width: 540px) {
   .form {
     width: 100%;
   }
@@ -141,23 +141,17 @@ legend {
 }
 
 ::-moz-placeholder {
-  color: white;
-  opacity: 0.5;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 ::placeholder {
-  color: white;
-  opacity: 0.5;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .form__btn {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  transition: background-color 0.3s;
-}
-.form__btn:hover {
-  background: rgba(255, 255, 255, 0.5);
 }
 .form__btn img {
   width: 50%;
@@ -167,34 +161,28 @@ legend {
   --bg-color: rgb(88, 184, 239);
 }
 
-.search-history {
-  align-self: center;
-  margin: 100px 0;
-}
-
 .search-history__title {
   font-size: 24px;
   font-weight: 600;
+  margin-top: 10px;
+}
+
+.input-btn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.search-history__btn {
   margin-bottom: 10px;
 }
 
 .search-history__container {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  -moz-column-gap: 50px;
-       column-gap: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   row-gap: 10px;
-  justify-items: flex-start;
-}
-.search-history__container input {
-  font-size: 18px;
-  font-weight: 400;
-}
-@media screen and (max-width: 600px) {
-  .search-history__container {
-    grid-template-columns: repeat(1, auto);
-    justify-items: center;
-  }
 }
 
 :root {
@@ -533,7 +521,6 @@ body {
 @media (max-width: 900px) {
   .wrapper {
     height: calc(100% - 100px);
-    padding: 10px 10px;
     top: 50px;
     right: 10px;
     bottom: 50px;
@@ -599,5 +586,14 @@ body {
     width: 100%;
     min-height: -moz-min-content;
     min-height: min-content;
+  }
+}
+
+.search-history-container {
+  width: 500px;
+}
+@media (max-width: 540px) {
+  .search-history-container {
+    width: 100%;
   }
 }/*# sourceMappingURL=main.css.map */

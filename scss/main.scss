@@ -63,7 +63,6 @@ body {
 	overflow-y: scroll;
 	@media (max-width: $tablet) {
 		height: calc(100% - 100px);
-		padding: 10px 10px;
 		top: 50px;
 		right: 10px;
 		bottom: 50px;
@@ -119,5 +118,13 @@ body {
 	@media (max-width: $tablet) {
 		width: 100%;
 		min-height: min-content;
+	}
+}
+
+.search-history-container {
+	width: 500px;
+
+	@media (max-width: 540px) {
+		width: 100%;
 	}
 }

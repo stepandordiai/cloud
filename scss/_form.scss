@@ -2,44 +2,38 @@
 @import "variables";
 
 .form {
-    @include flex-center;
-    width: 300px;
-    height: 40px;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
+	@include flex-center;
+	width: 500px;
+	height: 40px;
+	border-radius: 10px;
+	background: rgba(0, 0, 0, 0.1);
+	transition: background-color 0.3s;
 
-    &:focus-within {
-        background-color: rgba(0, 0, 0, 0.2);
-    }
+	&:focus-within {
+		background-color: rgba(0, 0, 0, 0.2);
+	}
 
-    @media (max-width: $mobile) {
-        width: 100%;
-    }
+	@media (max-width: 540px) {
+		width: 100%;
+	}
 }
 
 .form__input {
-    width: calc(100% - 40px);
-    height: 100%;
-    padding: 0 10px;
+	width: calc(100% - 40px);
+	height: 100%;
+	padding: 0 10px;
 }
 
 ::placeholder {
-    color: white;
-    opacity: 0.5;
+	color: rgba(255, 255, 255, 0.5);
 }
 
 .form__btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    transition: background-color 0.3s;
+	width: 40px;
+	height: 40px;
+	border-radius: 10px;
 
-    &:hover {
-        background: rgba(255, 255, 255, 0.5);
-    }
-
-    img {
-        width: 50%;
-    }
+	img {
+		width: 50%;
+	}
 }

@@ -222,7 +222,7 @@ async function submitHandler(e) {
 }
 
 function getItem() {
-	return JSON.parse(localStorage.getItem("searchHistory") || "[]");
+	return JSON.parse(localStorage.getItem("searchHistory")) || [];
 }
 
 function saveItem(props) {
@@ -264,16 +264,39 @@ function renderWeatherData(data) {
 	weatherImg.src = `./public/weather/flat-icons/${data.type.toLowerCase()}.svg`;
 }
 
-const suggestData = getItem();
+let suggestData = getItem();
 
-let gridHTML = "";
+function renderSearchHistoryData() {
+	let gridHTML = "";
+	suggestData.forEach((item) => {
+		gridHTML += `<div class="input-btn-container">
+	<input class="search-history__input" form="form" type="submit" value="${item}">
+	<button class="clear-btn" data-value="${item}">Clear</button>
+	</div>`;
+	});
 
-suggestData.forEach((item) => {
-	gridHTML += `<input class="search-history__input" form="form" type="submit" value="${item}">`;
-});
+	document.querySelector(".search-history__container").innerHTML =
+		gridHTML ||
+		"<p>No search history yet. Start searching to populate this list.</p>";
 
-document.querySelector(".search-history__container").innerHTML =
-	gridHTML || "<p>No suggested</p>";
+	document.querySelectorAll(".clear-btn").forEach((btn) => {
+		btn.addEventListener("click", () => {
+			const btnValue = btn.dataset.value;
+			const parentContainer = btn.parentNode;
+			const input = parentContainer.querySelector(".search-history__input");
+			const inputValue = input.value;
+
+			if (btnValue === inputValue) {
+				// TODO: filter() method returns new array
+				suggestData = suggestData.filter((item) => item !== btnValue);
+				saveItem(suggestData);
+				renderSearchHistoryData();
+			}
+		});
+	});
+}
+
+renderSearchHistoryData();
 
 document.querySelectorAll(".search-history__input").forEach((suggestForm) => {
 	suggestForm.addEventListener("click", () => {
@@ -282,7 +305,6 @@ document.querySelectorAll(".search-history__input").forEach((suggestForm) => {
 	});
 });
 
-// SUGGEST CITY
 function recomendHandler(prop) {
 	document.querySelector(".search-history").classList.add("none");
 	input.value = prop;
@@ -292,5 +314,5 @@ function recomendHandler(prop) {
 document.querySelector(".search-history__btn").addEventListener("click", () => {
 	localStorage.removeItem("searchHistory");
 	document.querySelector(".search-history__container").innerHTML =
-		"<p>No suggested</p>";
+		"<p>No search history yet. Start searching to populate this list.</p>";
 });

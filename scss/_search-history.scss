@@ -1,32 +1,27 @@
 @import "variables";
 
-.search-history {
-	align-self: center;
-	margin: 100px 0;
-}
-
 .search-history__title {
 	font: {
 		size: 24px;
 		weight: 600;
 	}
+	margin-top: 10px;
+}
+
+.input-btn-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+
+.search-history__btn {
 	margin-bottom: 10px;
 }
 
 .search-history__container {
-	input {
-		font: {
-			size: 18px;
-			weight: 400;
-		}
-	}
-	display: grid;
-	grid-template-columns: repeat(4, auto);
-	column-gap: 50px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 	row-gap: 10px;
-	justify-items: flex-start;
-	@media screen and (max-width: $mobile) {
-		grid-template-columns: repeat(1, auto);
-		justify-items: center;
-	}
 }
