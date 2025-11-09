@@ -6,7 +6,7 @@ const variables = document.querySelector(":root");
 const date = new Date();
 const timeNow = date.getHours();
 const yearNow = date.getFullYear();
-const formatDate = today.format("D/M/YY");
+const formatDate = today.format("YYYY-MM-DD");
 
 document.querySelector(".header__day").innerHTML = formatDate;
 
